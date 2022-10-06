@@ -26,13 +26,16 @@ class _SplashViewState extends State<SplashView> {
               return AnimatedOpacity(
                 opacity: value,
                 onEnd: () {
-                  Future.delayed(const Duration(seconds: 1), () {
-                    isLogado
-                        ? Navigator.of(context)
-                            .pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const Welcome()), (Route<dynamic> route) => false)
-                        : Navigator.of(context)
-                            .pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const HomeView()), (Route<dynamic> route) => false);
-                  });
+                  Future.delayed(
+                    const Duration(seconds: 1),
+                    () {
+                      isLogado
+                          ? Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(builder: (context) => const HomeView()), (Route<dynamic> route) => false)
+                          : Navigator.of(context)
+                              .pushAndRemoveUntil(MaterialPageRoute(builder: (context) => WelcomeView()), (Route<dynamic> route) => false);
+                    },
+                  );
                 },
                 duration: const Duration(milliseconds: 600),
                 child: Transform.scale(
