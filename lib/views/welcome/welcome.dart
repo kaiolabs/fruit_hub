@@ -15,7 +15,7 @@ class Welcome extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.6,
           child: Center(
             child: Padding(
-              padding: const EdgeInsets.only(top: 50.0),
+              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.12),
               child: Image.asset('assets/images/Component_1.png'),
             ),
           ),

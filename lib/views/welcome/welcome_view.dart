@@ -16,14 +16,10 @@ class WelcomeView extends StatelessWidget {
       children: [
         Welcome(
           onTapButton: () {
-            _pageController.animateToPage(
-              1,
-              duration: const Duration(milliseconds: 600),
-              curve: Curves.easeInOut,
-            );
+            _pageController.animateToPage(1, duration: const Duration(milliseconds: 600), curve: Curves.easeInOut);
           },
         ),
-        WelcomeAuthentication(),
+        const WelcomeAuthentication(),
       ],
     ));
   }
