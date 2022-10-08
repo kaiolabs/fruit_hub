@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruit_hub/controllers/ini_local.dart';
 import 'package:fruit_hub/views/home/home_view.dart';
 import 'package:fruit_hub/views/welcome/welcome_view.dart';
 
@@ -12,7 +13,7 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView> {
   @override
-  bool isLogado = false;
+  bool isLogado = IniLocal.readBool('Login', 'Permanecer conectado');
 
   @override
   Widget build(BuildContext context) {
