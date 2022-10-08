@@ -7,11 +7,13 @@ class InputField extends StatelessWidget {
   final String? hintText;
   final TextEditingController controller;
   final double? fontSize;
+  final double? borderRadius;
   const InputField({
     super.key,
     required this.controller,
     this.hintText = '',
     this.fontSize = 16,
+    this.borderRadius = 10,
     this.prefixIcon,
     this.suffixIcon,
   });
@@ -32,35 +34,35 @@ class InputField extends StatelessWidget {
         ),
         filled: true,
         fillColor: const Color(0xFFF7F5F5),
-        enabledBorder: const OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(
-            Radius.circular(10),
+            Radius.circular(borderRadius!),
           ),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.transparent,
           ),
         ),
-        focusedBorder: const OutlineInputBorder(
+        focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(
-            Radius.circular(10),
+            Radius.circular(borderRadius!),
           ),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.transparent,
           ),
         ),
-        focusedErrorBorder: const OutlineInputBorder(
+        focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(
-            Radius.circular(10),
+            Radius.circular(borderRadius!),
           ),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Palette.orange,
           ),
         ),
-        errorBorder: const OutlineInputBorder(
+        errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(
-            Radius.circular(10),
+            Radius.circular(borderRadius!),
           ),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Palette.orange,
           ),
         ),
