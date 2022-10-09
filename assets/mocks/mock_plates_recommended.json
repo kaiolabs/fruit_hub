@@ -1,0 +1,81 @@
+[
+    {
+        "id": 1,
+        "name": "Honey lime combo",
+        "description": "This is plate 1",
+        "price": 2000,
+        "image": "assets/images/Prato1.png",
+        "colorCardExadecimal": null,
+        "comboContains": [
+            {
+                "id": 1,
+                "name": "Red Quinoa"
+            },
+            {
+                "id": 2,
+                "name": "Lime"
+            },
+            {
+                "id": 3,
+                "name": "Honey"
+            },
+            {
+                "id": 4,
+                "name": "Blueberries"
+            },
+            {
+                "id": 5,
+                "name": "Mango"
+            },
+            {
+                "id": 6,
+                "name": "Strawberries"
+            },
+            {
+                "id": 7,
+                "name": "Fresh Mint"
+            }
+
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Berry mango combo",
+        "description": "This is plate 2",
+        "price": 2000,
+        "image": "assets/images/Prato2.png",
+        "colorCardExadecimal": null,
+        "comboContains": [
+            {
+                "id": 1,
+                "name": "Red Quinoa"
+            },
+            {
+                "id": 2,
+                "name": "Lime"
+            },
+            {
+                "id": 3,
+                "name": "Honey"
+            },
+            {
+                "id": 4,
+                "name": "Blueberries"
+            },
+            {
+                "id": 5,
+                "name": "Mango"
+            },
+            {
+                "id": 6,
+                "name": "Strawberries"
+            },
+            {
+                "id": 7,
+                "name": "Fresh Mint"
+            }
+
+        ]
+    }
+]
+    

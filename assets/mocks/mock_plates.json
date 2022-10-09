@@ -1,0 +1,120 @@
+[
+    {
+        "id": 1,
+        "name": "Quinoa fruit salad",
+        "description": "If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. make",
+        "price": 10000,
+        "image": "assets/images/Prato3.png",
+        "colorCardExadecimal": "0xFFFFFCF2",
+        "comboContains": [
+            {
+                "id": 1,
+                "name": "Red Quinoa"
+            },
+            {
+                "id": 2,
+                "name": "Lime"
+            },
+            {
+                "id": 3,
+                "name": "Honey"
+            },
+            {
+                "id": 4,
+                "name": "Blueberries"
+            },
+            {
+                "id": 5,
+                "name": "Mango"
+            },
+            {
+                "id": 6,
+                "name": "Strawberries"
+            },
+            {
+                "id": 7,
+                "name": "Fresh Mint"
+            }
+
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Tropical fruit salad",
+        "description": "This is plate 2",
+        "price": 10000,
+        "image": "assets/images/Prato4.png",
+        "colorCardExadecimal": "0xFFFEF4F4",
+        "comboContains": [
+            {
+                "id": 1,
+                "name": "Red Quinoa"
+            },
+            {
+                "id": 2,
+                "name": "Lime"
+            },
+            {
+                "id": 3,
+                "name": "Honey"
+            },
+            {
+                "id": 4,
+                "name": "Blueberries"
+            },
+            {
+                "id": 5,
+                "name": "Mango"
+            },
+            {
+                "id": 6,
+                "name": "Strawberries"
+            },
+            {
+                "id": 7,
+                "name": "Fresh Mint"
+            }
+
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Melon fruit salad",
+        "description": "This is plate 3",
+        "price": 10000,
+        "image": "assets/images/Prato5.png",
+        "colorCardExadecimal": "0xFFF1EFF6",
+        "comboContains": [
+            {
+                "id": 1,
+                "name": "Red Quinoa"
+            },
+            {
+                "id": 2,
+                "name": "Lime"
+            },
+            {
+                "id": 3,
+                "name": "Honey"
+            },
+            {
+                "id": 4,
+                "name": "Blueberries"
+            },
+            {
+                "id": 5,
+                "name": "Mango"
+            },
+            {
+                "id": 6,
+                "name": "Strawberries"
+            },
+            {
+                "id": 7,
+                "name": "Fresh Mint"
+            }
+
+        ]
+    }
+]
+    
