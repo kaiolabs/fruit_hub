@@ -1,95 +1,130 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/controllers/provider_finalize_purchase.dart';
+import 'package:fruit_hub/shared/animated_route.dart';
+import 'package:fruit_hub/shared/functions.dart';
 import 'package:fruit_hub/shared/palette.dart';
+import 'package:fruit_hub/views/add%20basket/add_basket.dart';
+import 'package:fruit_hub/views/components/favorited_button.dart';
+import 'package:provider/provider.dart';
 
 class PlateCard extends StatelessWidget {
+  final int id;
   final String imagePath;
   final String title;
-  final String price;
-  final Color? colorCard;
-  final Function()? onTap;
-  const PlateCard({super.key, required this.imagePath, required this.title, required this.price, this.onTap, this.colorCard});
+  final int price;
+  final int? colorCardExadecimal;
+  final String description;
+  final List comboContains;
+
+  const PlateCard({
+    super.key,
+    required this.imagePath,
+    required this.title,
+    required this.price,
+    this.colorCardExadecimal,
+    required this.description,
+    required this.comboContains,
+    required this.id,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 152,
-      height: 183,
-      margin: const EdgeInsets.only(right: 23),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), color: const Color(0xFFF7F5F5)),
-      child: Material(
-        color: colorCard ?? const Color(0xFFF7F5F5),
-        elevation: 3,
-        shadowColor: Colors.black.withOpacity(0.4),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(16),
-          onTap: onTap,
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 22),
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: Image.asset(
-                        imagePath,
-                        fit: BoxFit.scaleDown,
-                        width: 80,
-                        height: 80,
-                      ),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(12),
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: Icon(
-                        Icons.favorite_border_sharp,
-                        color: Palette.orange,
-                        size: 24,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 13),
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Palette.darkPurple,
-                  fontFamily: 'TTNorms_Medium',
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 13, left: 16, right: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    ValueNotifier<bool> isFavorited = ValueNotifier(false);
+
+    return Consumer<ProviderfinalizePurchase>(
+      builder: (context, providerfinalizePurchase, child) => Container(
+        constraints: const BoxConstraints(
+          maxWidth: 152,
+          maxHeight: 173,
+        ),
+        margin: const EdgeInsets.only(right: 23),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), color: const Color(0xFFFFFFFF)),
+        child: Material(
+          color: Color(colorCardExadecimal ?? 0xFFFFFFFF),
+          elevation: 2,
+          shadowColor: Colors.black.withOpacity(0.4),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(16),
+            child: Column(
+              children: [
+                Stack(
                   children: [
-                    Text(
-                      '₦ $price',
-                      style: const TextStyle(
-                        fontSize: 15,
-                        color: Palette.orange,
-                        fontFamily: 'TTNorms_Medium',
+                    Padding(
+                      padding: const EdgeInsets.only(top: 22),
+                      child: Align(
+                        alignment: Alignment.topCenter,
+                        child: Hero(
+                          tag: imagePath,
+                          child: Image.asset(
+                            imagePath,
+                            fit: BoxFit.scaleDown,
+                            width: 80,
+                            height: 80,
+                          ),
+                        ),
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: const Color(0xFFFFF2E7),
-                      ),
-                      child: const Icon(
-                        Icons.add,
-                        color: Palette.orange,
-                        size: 24,
+                    Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: FavoritedButton(
+                          isFavorited: isFavorited,
+                          size: 24,
+                        ),
                       ),
                     ),
                   ],
                 ),
-              )
-            ],
+                const SizedBox(height: 13),
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Palette.darkPurple,
+                    fontFamily: 'TTNorms_Medium',
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 13, left: 16, right: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        normalizerPrice(price.toString()),
+                        style: const TextStyle(
+                          fontSize: 15,
+                          color: Palette.orange,
+                          fontFamily: 'TTNorms_Medium',
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(25), color: const Color(0xFFFFF2E7)),
+                        child: const Icon(Icons.add, color: Palette.orange, size: 24),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            onTap: () {
+              providerfinalizePurchase.resetAll();
+              Navigator.push(
+                context,
+                animatedRoute(
+                  AddBasket(
+                    imagePath: imagePath,
+                    title: title,
+                    price: price,
+                    comboContains: comboContains,
+                    description: description,
+                    isFavorited: isFavorited,
+                    id: id,
+                  ),
+                ),
+              );
+            },
           ),
         ),
       ),
