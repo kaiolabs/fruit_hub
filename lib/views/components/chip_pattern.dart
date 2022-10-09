@@ -12,6 +12,7 @@ class ChipPattern extends StatelessWidget {
       child: Material(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         elevation: 2,
+        shadowColor: Colors.black.withOpacity(0.4),
         child: InkWell(
           borderRadius: BorderRadius.circular(10),
           onTap: () {},
