@@ -29,11 +29,11 @@ class InputField extends StatelessWidget {
         hintText: hintText,
         hintStyle: TextStyle(
           fontSize: fontSize,
-          color: const Color(0xFFC2BDBD),
+          color: const Color(0xFFB4B4C0),
           fontFamily: 'TTNorms_Regular',
         ),
         filled: true,
-        fillColor: const Color(0xFFF7F5F5),
+        fillColor: const Color(0xFFB4B4C0).withOpacity(0.1),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(borderRadius!),
