@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fruit_hub/controllers/inicializacao.dart';
-import 'package:fruit_hub/controllers/provider_welcome_authentication.dart';
+import 'package:fruit_hub/controllers/provider_finalize_purchase.dart';
 import 'package:fruit_hub/views/home/home_view.dart';
 import 'package:fruit_hub/views/splash/splash_view.dart';
 import 'package:fruit_hub/views/welcome/welcome_view.dart';
@@ -14,7 +14,7 @@ void main() async {
   await Inicializa.inicializaAplic();
 
   runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (_) => ProviderWelcomeAuthentication()),
+    ChangeNotifierProvider(create: (_) => ProviderfinalizePurchase()),
   ], child: const MyApp()));
 }
 
