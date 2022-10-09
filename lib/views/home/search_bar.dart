@@ -24,7 +24,7 @@ class SearchBar extends StatelessWidget {
           width: 35,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: const Color(0xFFF7F5F5),
+            color: const Color(0xFFB4B4C0).withOpacity(0.1),
           ),
           child: SvgPicture.asset('assets/images/Filter.svg', fit: BoxFit.scaleDown),
         )
