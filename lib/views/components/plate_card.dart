@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruit_hub/controllers/provider_finalize_purchase.dart';
 import 'package:fruit_hub/shared/animated_route.dart';
 import 'package:fruit_hub/shared/functions.dart';
 import 'package:fruit_hub/shared/palette.dart';
-import 'package:fruit_hub/views/add%20basket/add_basket.dart';
+import 'package:fruit_hub/views/add%20basket/add_plate_basket_view.dart';
 import 'package:fruit_hub/views/components/favorited_button.dart';
 import 'package:provider/provider.dart';
 
@@ -55,6 +56,7 @@ class PlateCard extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.topCenter,
                         child: Hero(
+                          transitionOnUserGestures: true,
                           tag: imagePath,
                           child: Image.asset(
                             imagePath,
@@ -91,13 +93,18 @@ class PlateCard extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        normalizerPrice(price.toString()),
-                        style: const TextStyle(
-                          fontSize: 15,
-                          color: Palette.orange,
-                          fontFamily: 'TTNorms_Medium',
-                        ),
+                      Row(
+                        children: [
+                          SvgPicture.asset('assets/images/Moeda.svg'),
+                          Text(
+                            formataPrice(price.toString()),
+                            style: const TextStyle(
+                              fontSize: 15,
+                              color: Palette.orange,
+                              fontFamily: 'TTNorms_Medium',
+                            ),
+                          ),
+                        ],
                       ),
                       Container(
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(25), color: const Color(0xFFFFF2E7)),
@@ -113,14 +120,15 @@ class PlateCard extends StatelessWidget {
               Navigator.push(
                 context,
                 animatedRoute(
-                  AddBasket(
-                    imagePath: imagePath,
+                  AddPlateBasketView(
+                    id: id,
                     title: title,
                     price: price,
-                    comboContains: comboContains,
+                    imagePath: imagePath,
                     description: description,
                     isFavorited: isFavorited,
-                    id: id,
+                    comboContains: comboContains,
+                    colorCardExadecimal: colorCardExadecimal ?? 0xFFFFFFFF,
                   ),
                 ),
               );
