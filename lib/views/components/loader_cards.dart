@@ -44,13 +44,14 @@ class _LoaderCardsState extends State<LoaderCards> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               padding: const EdgeInsets.only(right: 24),
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
               itemCount: snapshot.data.length,
               itemBuilder: (context, index) {
-                return PlateCard(
+                final plateCard = PlateCard(
                   id: snapshot.data[index].id,
                   imagePath: snapshot.data[index].image,
                   title: snapshot.data[index].name,
@@ -59,6 +60,7 @@ class _LoaderCardsState extends State<LoaderCards> {
                   comboContains: snapshot.data[index].comboContains,
                   description: snapshot.data[index].description,
                 );
+                return (index == 0) ? Padding(padding: const EdgeInsets.only(left: 24), child: plateCard) : plateCard;
               },
             );
           } else {
