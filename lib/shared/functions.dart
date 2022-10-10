@@ -10,8 +10,8 @@ String upCaser(String text) {
 }
 
 // formata o preço para o formato  0.000, 00,000 000,000...
-String normalizerPrice(String value) {
+String formataPrice(String value) {
   RegExp regExp = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
-  mathFunc(Match match) => '₦ ${match[0]},';
+  mathFunc(Match match) => '${match[0]},';
   return value.replaceAllMapped(regExp, mathFunc);
 }
