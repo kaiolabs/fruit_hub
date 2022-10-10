@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:fruit_hub/controllers/inicializacao.dart';
 import 'package:fruit_hub/controllers/provider_finalize_purchase.dart';
 import 'package:fruit_hub/views/home/home_view.dart';
+import 'package:fruit_hub/views/order%20complete/order_complete_view.dart';
+import 'package:fruit_hub/views/order%20list/basket_view.dart';
 import 'package:fruit_hub/views/splash/splash_view.dart';
 import 'package:fruit_hub/views/welcome/welcome_view.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +34,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashView(),
         '/home': (context) => const HomeView(),
         '/welcome': (context) => WelcomeView(),
+        '/orderListView': (context) => const OrderListView(),
+        '/orderCompleteView': (context) => const OrderCompleteView(),
       },
     );
   }
