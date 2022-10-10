@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fruit_hub/shared/palette.dart';
 
-alertDialogPattern(context) {
+alertDialogPattern(context, String title, String content, {bool? exitMode = false}) {
   return showGeneralDialog(
     context: context,
     pageBuilder: (context, animation, secondaryAnimation) {
@@ -18,16 +18,16 @@ alertDialogPattern(context) {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          title: const Text(
-            'Sair',
-            style: TextStyle(
+          title: Text(
+            title,
+            style: const TextStyle(
               fontSize: 18,
               fontFamily: 'TTNorms_Medium',
             ),
           ),
-          content: const Text(
-            'Deseja realmente sair?',
-            style: TextStyle(
+          content: Text(
+            content,
+            style: const TextStyle(
               fontSize: 15,
               fontFamily: 'TTNorms_Medium',
             ),
@@ -38,7 +38,7 @@ alertDialogPattern(context) {
                 Navigator.pop(context, false);
               },
               child: const Text(
-                'Cancelar',
+                'Cancel',
                 style: TextStyle(
                   fontSize: 15,
                   color: Palette.orange,
@@ -48,11 +48,11 @@ alertDialogPattern(context) {
             ),
             TextButton(
               onPressed: () async {
-                SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+                exitMode! ? SystemNavigator.pop() : null;
                 Navigator.pop(context, true);
               },
               child: const Text(
-                'Sair',
+                'Confirm',
                 style: TextStyle(
                   fontSize: 15,
                   color: Palette.orange,
