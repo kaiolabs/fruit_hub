@@ -1,23 +1,39 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/shared/palette.dart';
+import 'package:fruit_hub/views/components/alert_dialog_pattern.dart';
 
 class GoBackButton extends StatelessWidget {
-  const GoBackButton({super.key});
+  final Function()? onPressed;
+
+  const GoBackButton({
+    super.key,
+    this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 76,
+      width: 80,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Material(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(25),
         child: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
+          borderRadius: BorderRadius.circular(25),
+          onTap: onPressed ??
+              () {
+                final confirmaPop =
+                    alertDialogPattern(context, 'Request', 'You didn\'t complete the order, do you want to leave anyway?').then((value) {
+                  if (value) {
+                    onPressed;
+                    Navigator.pop(context);
+                  }
+                });
+              },
           child: Row(
             children: const [
               SizedBox(
