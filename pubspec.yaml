@@ -18,6 +18,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider: ^6.0.3
   flutter_svg: ^1.1.5
+  ini: ^2.1.0
+  sqflite: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -29,18 +31,23 @@ flutter:
 
   uses-material-design: true
 
-  To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/mocks/
 
   fonts:
-    - family: Schyler
+    - family: TTNorms_Bold
       fonts:
-        - asset: fonts/Schyler-Regular.ttf
-        - asset: fonts/Schyler-Italic.ttf
-          style: italic
-    - family: Trajan Pro
+        - asset: assets/fonts/TTNormsPro_Bold.ttf
+          
+    - family: TTNorms_Medium
       fonts:
-        - asset: fonts/TrajanPro.ttf
-        - asset: fonts/TrajanPro_Bold.ttf
-          weight: 700
+        - asset: assets/fonts/TTNormsPro_Medium.ttf
+          
+    - family: TTNorms_Regular
+      fonts:
+        - asset: assets/fonts/TTNormsPro_Regular.ttf
+          
+    - family: TTNormsPro_Light
+      fonts:
+        - asset: assets/fonts/TTNormsPro_Light.ttf
