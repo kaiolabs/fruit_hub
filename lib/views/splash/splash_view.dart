@@ -12,7 +12,6 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-  @override
   bool isLogado = IniLocal.readBool('Login', 'Permanecer conectado');
 
   @override
