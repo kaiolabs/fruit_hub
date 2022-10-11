@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:fruit_hub/views/components/chip_pattern.dart';
 
 class LoaderTags extends StatelessWidget {
@@ -13,13 +13,15 @@ class LoaderTags extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      color: const Color(0xFFB4B4C0).withOpacity(0.07),
       height: height,
       child: ListView(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          for (var i = 0; i < tags.length; i++) ChipPattern(text: tags[i]),
+          const SizedBox(width: 24),
+          for (var tag in tags) ChipPattern(text: tag),
         ],
       ),
     );
